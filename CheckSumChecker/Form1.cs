@@ -27,7 +27,7 @@ namespace CheckSumChecker
             //string path = folderFinder.ChooseFolder();
             string sourcePath = ConfigurationManager.AppSettings["FolderPath"];
             string destinationPath = ConfigurationManager.AppSettings["DestinationPath"];
-            folderFinder.CreateArchive(sourcePath, "C:\\Users\\Nick\\Desktop\\test");
+            folderFinder.CreateArchive(sourcePath, destinationPath);
             MessageBox.Show("Archive Created!");
         }
 
@@ -51,6 +51,8 @@ namespace CheckSumChecker
         private void button4_Click(object sender, EventArgs e)
         {
             string sourcePath = ConfigurationManager.AppSettings["HashFile"];
+            string path = ConfigurationManager.AppSettings["FolderPath"];
+            folderFinder.GenerateHash(path);
             folderFinder.CheckHash(sourcePath);
         }
     }

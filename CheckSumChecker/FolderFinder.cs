@@ -24,6 +24,12 @@ namespace CheckSumChecker
         }
         public void CreateArchive(string sourcePath, string targetPath)
         {
+            targetPath += (" " + DateTime.Now.Day.ToString() + "-"
+                            + DateTime.Now.Month.ToString() + "-"
+                            + DateTime.Now.Year.ToString() + "-"
+                            + DateTime.Now.Hour.ToString() + "-"
+                            + DateTime.Now.Minute.ToString() + "-"
+                            + DateTime.Now.Second.ToString());
             ProcessStartInfo p = new ProcessStartInfo();
             p.FileName = "7za.exe";
             p.Arguments = "a -tzip \"" + targetPath + "\" \"" + sourcePath + "\"";
